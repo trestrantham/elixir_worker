@@ -1,0 +1,2 @@
+%{"exredis": {:package, "0.1.0"},
+  "jazz": {:package, "0.2.1"}}
