@@ -2,7 +2,7 @@ defmodule ElixirWorker.Supervisor do
   use Supervisor
 
   def start_link do
-    {:ok, redis} = Exredis.start_link
+    redis = Exredis.start_using_connection_string(Application.get_env(:redis, :connection_url))
     Supervisor.start_link(__MODULE__, {:ok, redis})
   end
 

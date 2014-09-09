@@ -24,4 +24,4 @@ use Mix.Config
 #     import_config "#{Mix.env}.exs"
 
 config :redis,
-  connection_url: ""
+  connection_url: System.get_env("REDISCLOUD_URL")
