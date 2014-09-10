@@ -3,7 +3,7 @@ defmodule ElixirWorker.Mixfile do
 
   def project do
     [
-      app: :activity_aggregator,
+      app: :elixir_worker,
       version: "0.0.1",
       elixir: "~> 1.0.0-rc2",
       deps: deps
