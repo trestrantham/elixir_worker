@@ -15,13 +15,13 @@ defmodule ElixirWorker.Worker do
   end
 
   def handle_cast({:run, job}, redis) do
-    IO.puts "Hanlding job ... #{job}"
+    IO.puts "Handling job ... #{job}"
 
     job         = JSON.decode!(job)
     jid         = job["jid"]
-    args        = [jid, "Hello Hard Worker"] # TODO: Args should be the COMPUTED value
-    queue       = "queue:default"            # Switch to the Rails default Sidekiq queue
-    class       = "HardWorker"               # Change this to match Rails worker
+    args        = job["args"].to_i * 3
+    queue       = "queue:default"
+    class       = "SaveActivity"
     enqueued_at = job["enqueued_at"]
 
     new_job = HashDict.new
