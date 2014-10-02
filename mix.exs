@@ -16,7 +16,7 @@ defmodule ElixirWorker.Mixfile do
   def application do
     [
       applications: [:logger],
-      mode: {ElixirWorker, []}
+      mod: {ElixirWorker, []}
     ]
   end
 
@@ -31,7 +31,7 @@ defmodule ElixirWorker.Mixfile do
   # Type `mix help deps` for more examples and options
   defp deps do
     [
-      {:exredis, "~> 0.1"},
+      {:exredis, github: "artemeff/exredis"},
       {:jazz, "~> 0.2"}
     ]
   end

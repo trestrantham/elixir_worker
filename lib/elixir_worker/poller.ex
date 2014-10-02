@@ -1,11 +1,11 @@
 defmodule ElixirWorker.Poller do
   use GenServer
 
-  def start_link(redis) do
-    GenServer.start_link(__MODULE__, redis, [])
+  def start_link([redis]) do
+    GenServer.start_link(__MODULE__, {:ok, redis}) 
   end
 
-  def init(redis) do
+  def init({:ok, redis}) do
     {:ok, redis, 0}
   end
 

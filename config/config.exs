@@ -10,10 +10,10 @@ use Mix.Config
 
 # Sample configuration:
 #
-#     config :logger, :console,
-#       level: :info,
-#       format: "$date $time [$level] $metadata$message\n",
-#       metadata: [:user_id]
+config :logger, :console,
+  level: :debug,
+  format: "$date $time [$level] $metadata$message\n",
+  metadata: [:user_id]
 
 # It is also possible to import configuration files, relative to this
 # directory. For example, you can emulate configuration per environment
@@ -24,4 +24,4 @@ use Mix.Config
 #     import_config "#{Mix.env}.exs"
 
 config :redis,
-  connection_url: System.get_env("REDISCLOUD_URL")
+  connection_url: System.get_env("REDIS_URL")

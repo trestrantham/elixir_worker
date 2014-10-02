@@ -1,12 +1,13 @@
 defmodule ElixirWorker.Worker do
   use GenServer
+  require Logger
 
   def start_link(redis) do
     :random.seed(:os.timestamp)
-    GenServer.start_link(__MODULE__, redis, [])
+    GenServer.start_link(__MODULE__, [redis], [])
   end
 
-  def init(redis) do
+  def init([redis]) do
     {:ok, redis}
   end
 
@@ -15,7 +16,7 @@ defmodule ElixirWorker.Worker do
   end
 
   def handle_cast({:run, job}, redis) do
-    IO.puts "Handling job ... #{job}"
+    Logger.info "Handling job ... #{job}"
 
     job         = JSON.decode!(job)
     jid         = job["jid"]
